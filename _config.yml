@@ -27,15 +27,14 @@ tagline: Don't dream, Be it   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
-
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://dangils.github.io/'
 
 github:
   username: dangils             # change to your github username
 
-twitter:
-  username: twitter_username            # change to your twitter username
+#twitter:
+#  username: twitter_username            # change to your twitter username
 
 social:
   # Change to your full name.
@@ -83,7 +82,7 @@ theme_mode:   # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: assets\img\note.jpg
 
 # boolean type, the global switch for ToC in posts.
 toc: true
