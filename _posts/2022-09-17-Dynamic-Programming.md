@@ -1,17 +1,12 @@
 ---
-title : Dynamic Programming
 
-excerpt : Dynamic Programming
-
-categories: Algorithm
-
+title: "Dynamic Programming"
+date: "2022-09-18 21:19:00"
+categories: [Algorithm]
 tags: [Algorithm, python, DynamicProgramming]
 
 toc : true
-
-toc_sticky : true
-
-pin : true
+future : true
 
 ---
 
