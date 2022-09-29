@@ -1,5 +1,5 @@
 ---
-title: "[Python] weakref 약한참조 사용 및 python 메모리 누수 확인"
+title: "[Python] weakref 약한참조 사용 및 python 메모리 확인"
 date: "2022-03-15 21:40:02"
 categories: [Python]
 tags: [Python]
