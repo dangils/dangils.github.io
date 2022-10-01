@@ -33,6 +33,7 @@ tags: [Python]
 <br>
 
 > python 변수 스코프 확인
+
 ```python
 # namespace_example01.py
 def outer_func():
