@@ -2,7 +2,7 @@
 title: "[Python] Observer Pattern 정리"
 date: "2022-04-03 20:11:10"
 categories: [Python]
-tags: [Python][DesignPattern]
+tags: [DesignPattern]
 
 
 ---
@@ -27,13 +27,14 @@ tags: [Python][DesignPattern]
 
 ------------
 
-#### 활용 상황
+### 활용 상황
 - 관찰대상 - 관찰자의 구조를 가질 때 사용
 - 이벤트 핸들러가 대표적인 옵저버 패턴의 예
   (이벤트 핸들러 : Observer, 이벤트 : Subject)
 
 
-> 구현 예시
+**구현 예시**
+
 ```python
 # 관찰 대상
 subject = ConcreteSubject()
@@ -86,7 +87,6 @@ class ConcreteObserverB(Observer):
 
 
 
-## 참고
+### 참고
 
-[python high]
 https://wikidocs.net/83755
