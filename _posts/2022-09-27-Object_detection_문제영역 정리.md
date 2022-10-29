@@ -1,5 +1,5 @@
 ---
-title: "[AI] Object Detection 문제영역 정리"
+title: "[AI] Object Detection 문제영역과 metric 정리"
 date: "2022-09-27 22:33:12"
 categories: [AI,Object detection]
 tags: [AI,vision,object detection]
@@ -77,3 +77,13 @@ precision = 5/6 , Recall = 5/10
 
 ![image](https://user-images.githubusercontent.com/74512114/197536639-0c329f96-2d8a-4ff8-bdbb-0f3b8be7256a.png)
 - recall이 서서히 증가하다가 rank 10에서 5번째 True 일때 1.0
+
+**recall에 따른 precision 그래프**
+![image](https://user-images.githubusercontent.com/74512114/197628543-c0333616-e9bd-4443-a1e6-0ee07d4efc79.png)
+
+- B : Precision - Recall 그래프
+- C : 그래프 B에서 곡선의 아래 면적으로 해당 부분이 AP(Average Precision)
+
+> mAP(mean Average Precision)
+- 각각의 클래스에 대한 AP의 평균
+- Object Dectection의 평가 지표
