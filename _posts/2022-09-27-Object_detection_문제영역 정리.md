@@ -1,7 +1,7 @@
 ---
 title: "[AI] Object Detection 문제영역과 metric 정리"
 date: "2022-09-27 22:33:12"
-categories: [AI,Object detection]
+categories: [AI,Vision]
 tags: [AI,vision,object detection]
 
 
