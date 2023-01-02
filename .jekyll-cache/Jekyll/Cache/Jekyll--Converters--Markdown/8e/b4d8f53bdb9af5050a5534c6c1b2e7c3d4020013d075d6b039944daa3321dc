@@ -1,0 +1,7 @@
+I"U<h3 id="numpy">Numpy</h3>
+<ul>
+  <li>python에서 벡터,행렬등 수치 연산을 수행하는 선형대수(Linear algebra) 라이브러리</li>
+  <li>내부적으로 C로 구현되었으며 연산이 빠르다.</li>
+  <li>N차원 배열(array)객체이며 모든 배열의 값이 기본적으로 같은 타입이어야 한다.</li>
+</ul>
+:ET

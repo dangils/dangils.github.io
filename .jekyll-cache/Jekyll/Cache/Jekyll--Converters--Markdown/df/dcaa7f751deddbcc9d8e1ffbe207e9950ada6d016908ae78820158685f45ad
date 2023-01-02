@@ -1,0 +1,375 @@
+I"�L<h3 id="object-oriented-programming">Object Oriented Programming</h3>
+<ul>
+  <li>class(설계도), object(객체), attribute(변수), method(함수)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+</pre></td><td class="rouge-code"><pre><span class="c1"># 파이썬에서 모든 attribute, method는 기본적으로 public 즉 클래스 외부에서 attribute, method 접근 가능
+</span>
+<span class="c1"># public
+</span><span class="k">class</span> <span class="nc">Quadrangle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+
+    <span class="k">def</span> <span class="nf">get_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">height</span>
+
+    <span class="k">def</span> <span class="nf">set_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+<span class="n">square</span> <span class="o">=</span> <span class="n">Quadrangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s">'blue'</span><span class="p">)</span>
+<span class="n">square</span><span class="p">.</span><span class="n">width</span>
+
+<span class="nb">dir</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
+<span class="c1"># 내부 구조에 method가 전부 포함 되어 있음
+</span>
+
+<span class="p">[</span><span class="s">'__class__'</span><span class="p">,</span>
+ <span class="s">'__delattr__'</span><span class="p">,</span>
+ <span class="s">'__dict__'</span><span class="p">,</span>
+ <span class="s">'__dir__'</span><span class="p">,</span>
+ <span class="s">'__doc__'</span><span class="p">,</span>
+ <span class="s">'__eq__'</span><span class="p">,</span>
+ <span class="s">'__format__'</span><span class="p">,</span>
+ <span class="s">'__ge__'</span><span class="p">,</span>
+ <span class="s">'__getattribute__'</span><span class="p">,</span>
+ <span class="s">'__gt__'</span><span class="p">,</span>
+ <span class="s">'__hash__'</span><span class="p">,</span>
+ <span class="s">'__init__'</span><span class="p">,</span>
+ <span class="s">'__init_subclass__'</span><span class="p">,</span>
+ <span class="s">'__le__'</span><span class="p">,</span>
+ <span class="s">'__lt__'</span><span class="p">,</span>
+ <span class="s">'__module__'</span><span class="p">,</span>
+ <span class="s">'__ne__'</span><span class="p">,</span>
+ <span class="s">'__new__'</span><span class="p">,</span>
+ <span class="s">'__reduce__'</span><span class="p">,</span>
+ <span class="s">'__reduce_ex__'</span><span class="p">,</span>
+ <span class="s">'__repr__'</span><span class="p">,</span>
+ <span class="s">'__setattr__'</span><span class="p">,</span>
+ <span class="s">'__sizeof__'</span><span class="p">,</span>
+ <span class="s">'__str__'</span><span class="p">,</span>
+ <span class="s">'__subclasshook__'</span><span class="p">,</span>
+ <span class="s">'__weakref__'</span><span class="p">,</span>
+ <span class="s">'color'</span><span class="p">,</span>
+ <span class="s">'get_area'</span><span class="p">,</span>
+ <span class="s">'height'</span><span class="p">,</span>
+ <span class="s">'set_area'</span><span class="p">,</span>
+ <span class="s">'width'</span><span class="p">]</span>
+
+
+
+ <span class="c1"># protected
+</span><span class="s">'''
+- python에서 해당 속성의 앞에 _(single underscore) 를 붙여서 표시만 함
+- 실제 제약되진 않고 일종의 경고 표시로 사용
+'''</span>
+<span class="k">class</span> <span class="nc">Quadrangle2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+
+    <span class="k">def</span> <span class="nf">_set_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_height</span> <span class="o">=</span> <span class="n">height</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<hr />
+
+<h3 id="class-inheritance상속">Class Inheritance(상속)</h3>
+
+<ul>
+  <li>abstraction : 여러 클래스에 중복되는 속성, 메서드를 하나의 기본 클래스로 작성하는 작업</li>
+  <li>inheritance : 기본 클래스의 공통 기능을 물려받고, 다른 부분만 추가 또는 변경하는것</li>
+  <li>( 상위 : parent, super, base class / 하위 : child, sub, derived class )</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre></td><td class="rouge-code"><pre>
+<span class="k">class</span> <span class="nc">Figure</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__color</span> <span class="o">=</span> <span class="n">color</span>
+
+<span class="k">class</span> <span class="nc">Quadrangle</span><span class="p">(</span><span class="n">Figure</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">set_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__height</span> <span class="o">=</span> <span class="n">height</span>
+
+    <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">color</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">__width</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">__height</span><span class="p">)</span>
+
+
+<span class="n">square</span> <span class="o">=</span> <span class="n">Quadrangle</span><span class="p">(</span><span class="s">'square'</span><span class="p">,</span><span class="s">'blue'</span><span class="p">)</span>
+<span class="n">square</span><span class="p">.</span><span class="n">set_area</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">square</span><span class="p">.</span><span class="n">get_info</span><span class="p">()</span>
+
+<span class="s">'''
+double underscore 속성으로 접근이 안되어 error 발생
+'''</span>
+
+
+ <span class="k">class</span> <span class="nc">Figure</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+
+<span class="k">class</span> <span class="nc">Quadrangle</span><span class="p">(</span><span class="n">Figure</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">set_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__height</span> <span class="o">=</span> <span class="n">height</span>
+
+    <span class="k">def</span> <span class="nf">get_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">color</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">__width</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">__height</span><span class="p">)</span>
+
+
+<span class="n">square</span> <span class="o">=</span> <span class="n">Quadrangle</span><span class="p">(</span><span class="s">'square'</span><span class="p">,</span><span class="s">'blue'</span><span class="p">)</span>
+<span class="n">square</span><span class="p">.</span><span class="n">set_area</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">square</span><span class="p">.</span><span class="n">get_info</span><span class="p">()</span>
+
+<span class="o">-&gt;</span> <span class="n">square</span> <span class="n">blue</span> <span class="mi">25</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>클래스 변수</strong> : 클래스 정의에서 메서드 밖에 존재 하는 변수</p>
+<ul>
+  <li>해당 클래스를 사용하는 모두에게 공용으로 사용되는 변수</li>
+  <li>클래스 변수는 클래스 내외부에서 ‘클래스명.변수명’ 으로 엑세스 가능</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>인스턴스 변수</strong> : 클래스 정의의 메서드 안에서 사용되면서 “self.변수명” 처럼 사용되는 변수</p>
+<ul>
+  <li>각 객체별로 서로 다른 값을 가짐</li>
+  <li>클래스 내부에서는 self.인스턴스변수명 을 사용하여 엑세스, 클래스 밖에서는 객체명.인스턴스변수명 으로 엑세스</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">Figure</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 클래스 변수
+</span>
+    <span class="c1"># 생성자(initializer)
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="c1"># self.* : 인스턴스변수
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+        <span class="c1"># 클래스 변수 접근 예
+</span>        <span class="n">Figure</span><span class="p">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Figure</span><span class="p">.</span><span class="n">count</span> <span class="o">-=</span> <span class="mi">1</span>
+
+
+<span class="n">figure2</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Figure</span><span class="p">.</span><span class="n">count</span>
+
+<span class="n">figure1</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Figure</span><span class="p">.</span><span class="n">count</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><strong>instance method</strong> : 해당 객체 안에서 호출 (지금까지 다룬 self.메서드명을 의미함)</p>
+<ul>
+  <li>해당 메서드를 호출한 객체에만 영향을 미침</li>
+  <li>객체 속성에 접근 가능</li>
+</ul>
+
+<p><strong>static method</strong> : 객체와 독립적이지만, 로직상 클래스내에 포함되는 메서드</p>
+<ul>
+  <li>self 파라미터를 갖고 있지 않음</li>
+  <li>객체 속성에 접근 불가</li>
+  <li>정적 메서드는 메서드 앞에 @staticmethod 라는 Decorator를 넣어야 함</li>
+  <li>클래스명.정적메서드명 or 객체명.정적메서드명 둘 다 호출 가능</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">Figure</span> <span class="p">:</span>
+    <span class="c1"># 생성자
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+    <span class="c1">#메서드
+</span>    <span class="k">def</span> <span class="nf">calc_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">height</span>
+
+    <span class="c1">#정적 메서드 (Figure에 너비와 높이가 같은 도형은 정사각형임을 알려주는 기능)
+</span>    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">is_square</span><span class="p">(</span><span class="n">rect_width</span><span class="p">,</span> <span class="n">rect_height</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rect_width</span> <span class="o">==</span> <span class="n">rect_height</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"정사각형이 될 수 있는 너비/높이"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">"될수 없습니다."</span>
+
+<span class="n">figure1</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">figure1</span><span class="p">.</span><span class="n">is_square</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Figure</span><span class="p">.</span><span class="n">is_square</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="o">-&gt;</span>
+<span class="n">정사각형이</span> <span class="n">될</span> <span class="n">수</span> <span class="n">있는</span> <span class="n">너비</span><span class="o">/</span><span class="n">높이</span>
+<span class="n">될수</span> <span class="n">없습니다</span><span class="p">.</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+:ET

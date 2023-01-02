@@ -1,0 +1,97 @@
+I"�<h3 id="binarysearch">BinarySearch</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre></td><td class="rouge-code"><pre><span class="c1"># 이진 탐색 재귀 구현
+</span><span class="s">'''
+- 인덱스 시작점, 끝점 확인
+- 양끝의 인덱스 나누어 가운데 인덱스 저장
+- 찾는 수가 가운데 인덱스 값보다 크면 오른쪽, 작으면 왼쪽 탐색
+- 위 단계 반복
+
+- array 전체 배열, target 찾는 값, start 시작 인덱스,
+end 끝 인덱스
+'''</span>
+<span class="k">def</span> <span class="nf">binary</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">'mid : </span><span class="si">{</span><span class="n">mid</span><span class="si">}</span><span class="s">'</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mid</span>
+
+    <span class="k">elif</span> <span class="n">target</span> <span class="o">&gt;</span> <span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">binary</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+        <span class="c1"># binary(array, target, mid+1, end)
+</span>
+    <span class="k">elif</span> <span class="n">target</span> <span class="o">&lt;</span> <span class="n">array</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">binary</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'none'</span><span class="p">)</span>
+        <span class="k">pass</span>
+
+
+<span class="c1"># 전체 원소 갯수, 타겟 넘버
+</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+
+<span class="n">array00</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">binary</span><span class="p">(</span><span class="n">array00</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">array00</span><span class="p">[</span><span class="n">result</span><span class="p">]</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'원소가 존재 하지 않음'</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<hr />
+
+<p>####</p>
+
+:ET

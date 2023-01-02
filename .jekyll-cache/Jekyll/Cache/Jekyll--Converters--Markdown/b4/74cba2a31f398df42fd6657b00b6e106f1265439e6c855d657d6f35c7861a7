@@ -1,0 +1,161 @@
+I"e"<h3 id="class-object-instance-개념-정리">Class, Object, Instance 개념 정리</h3>
+
+<blockquote>
+  <p>Class</p>
+  <ul>
+    <li>주로 어떤 틀에 비유됨, 즉 같은 무엇을 계속 만들어 내는것</li>
+    <li>클래스는 객체(Object)를 정의하고 만들기 위한 변수와 메서드의 집합</li>
+  </ul>
+</blockquote>
+
+<ul>
+  <li>class의 객체(object)가 sw에서 실체화 되면 그것이 instance</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">car</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'car!!'</span><span class="p">)</span>
+
+<span class="n">ray</span> <span class="o">=</span> <span class="n">car</span><span class="p">()</span>
+<span class="n">ray</span><span class="p">.</span><span class="n">on</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>1) ray는 객체(object)
+2) ray 객체(object)는 car 클래스의 인스턴스(ray = car() 로 실체화 됨)</p>
+<ul>
+  <li>인스턴스(instance)라는 표현은 특정 객체가 어떤 클래스의 객체인지 관계를 중점으로 표현할 때 사용</li>
+</ul>
+
+<hr />
+
+<h3 id="인스턴스-변수란">인스턴스 변수란?</h3>
+<ul>
+  <li>인스턴스변수란 각각의 인스턴스 마다 독립한 변수</li>
+  <li>각각의 인스턴스 변수는 다른 것으로 취급하는 변수에 값을 대입해도, 인스턴스마다 각각의 값을 보존</li>
+</ul>
+
+<p>1) 인스턴스 변수의 선언과 접근 방법</p>
+<ul>
+  <li>일반적으로 인스턴스 변수의 생성은 생성자 클래스 <strong>init</strong>() 내부에서 이루어진다.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">self.인스턴스변수 = 값</code></p>
+
+<p>2) 인스턴스 변수의 사용예</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">Myclass</span><span class="p">:</span>
+
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span> <span class="p">:</span> <span class="c1"># 초기화 : 인스턴스 작성시에 자동적으로 호출된다.
+</span>    <span class="bp">self</span><span class="p">.</span><span class="n">vlaue</span> <span class="o">=</span> <span class="n">text</span> <span class="c1"># 인스턴스 변수 value를 선언한다.
+</span>
+  <span class="k">def</span> <span class="nf">print_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># 인스턴스 변수 value의 값을 표시하는 함수
+</span>    <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">value</span><span class="p">)</span> <span class="c1"># 인스턴스 변수 value에 접근하고 표시한다.
+</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">=</span> <span class="s">"__main__"</span><span class="p">:</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="s">"123"</span><span class="p">)</span> <span class="c1"># 인스턴스 a를 작성
+</span>  <span class="n">b</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="s">"abc"</span><span class="p">)</span> <span class="c1"># 인스턴스 b를 작성
+</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">value</span><span class="p">)</span> <span class="c1"># 123
+</span>  <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">value</span><span class="p">)</span> <span class="c1"># abc
+</span>
+  <span class="n">a</span><span class="p">.</span><span class="n">print_value</span><span class="p">()</span> <span class="c1"># 123
+</span>  <span class="n">b</span><span class="p">.</span><span class="n">print_value</span><span class="p">()</span> <span class="c1"># abc
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li>python에서 클래스 내에 정의된 메소드로부터 인스턴스 변수로 접근하는 경우에 메소드(인스턴스 메소드)의 인수에 self를 전달하여 접근</li>
+  <li>인수 self로는 자동적으로 인스턴스 자체가 전달된다.</li>
+</ul>
+
+<hr />
+
+<h3 id="클래스-변수란">클래스 변수란?</h3>
+<ul>
+  <li>클래스 변수는 인스턴스 변수와 달리 모든 인스턴스 사이에 공유된 값을 가진 변수</li>
+  <li>클래스 변수는 인스턴스를 생성하는 것이 아닌 참고하는 것이 가능</li>
+</ul>
+
+<p>1) 클래스 변수의 선언과 접근방법</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="n">클래스변수</span> <span class="o">=</span> <span class="n">값</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li>클래스 변수 접근 <code class="language-plaintext highlighter-rouge">클래스.클래스변수</code></li>
+</ul>
+
+<p>2) 클래스 변수의 사용예</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+	<span class="n">value</span> <span class="o">=</span> <span class="s">"abc"</span> <span class="c1"># 클래스 변수를 선언
+</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+	<span class="k">print</span> <span class="n">MyClass</span><span class="p">.</span><span class="n">value</span> <span class="c1"># abc
+</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li>클래스의 인스턴스를 생성하는 것이 아닌 MyClass의 클래스 변수 value에 접근하여 값을 표시</li>
+</ul>
+
+<blockquote>
+  <p>클래스의 인스턴스를 생성하고 클래스 변수를 표시
+```python
+class MyClass:
+	vlaue = 0 # 클래스 변수를 선언</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>def __init__(self): # 초기화 : 인스턴스 생성
+	MyClass.value += 1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>if <strong>name</strong> == “<strong>main</strong>”:
+	a = MyClass() # 인스턴스 a를 생성한다.
+    print MyClass.vlaue # 1</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>b = MyClass() # 인스턴스 b를 생성한다.
+print MyClass.value # 2 ```
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>3) 클래스 변수 사용시 주의사항</p>
+<ul>
+  <li>클래스 변수에 접근할 때는 특별히 이유가 없다면 ‘인스턴스.클래스변수’ 나 ‘self.클래스변수’와 같이 접근하는 것은 피해야한다.</li>
+  <li>python에는 인스턴스 변수를 인스턴스 객체로부터 생성하는 것이 가능하므로 의도치 않게 클래스 변수를 인스턴스 변수로 은폐해버리는 경우가 있다.</li>
+</ul>
+
+<hr />
+
+<h3 id="클래스-변수---인스턴스-변수-차이점">클래스 변수 - 인스턴스 변수 차이점</h3>
+<p><img width="486" alt="class-instance" src="https://user-images.githubusercontent.com/74512114/193594201-e46b139c-5054-4cec-b6a0-bfab155eab71.PNG" /></p>
+
+:ET

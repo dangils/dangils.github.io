@@ -1,0 +1,257 @@
+I"�2<h3 id="numpy">Numpy</h3>
+<ul>
+  <li>python에서 벡터,행렬등 수치 연산을 수행하는 선형대수(Linear algebra) 라이브러리</li>
+  <li>내부적으로 C로 구현되었으며 연산이 빠르다.</li>
+  <li>N차원 배열(array)객체이며 모든 배열의 값이 기본적으로 같은 타입이어야 한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td> --><td class="rouge-code"><pre>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arrange</span><span class="p">(</span><span class="mi">15</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># [[ 0  1  2  3  4]
+#  [ 5  6  7  8  9]
+#  [10 11 12 13 14]]
+</span>
+<span class="mi">3</span><span class="n">행</span> <span class="mi">5</span><span class="n">열의</span> <span class="n">array</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="numpyndarray-의-대표적인-속성값">numpy.ndarray 의 대표적인 속성값</h4>
+
+<ul>
+  <li>ndarray.shape : 배열의 각 축(axis)의 크기</li>
+  <li>ndarray.ndim : 축의 갯수(Dimension)</li>
+  <li>ndarray.dtype : 각 요소(Element)의 타입</li>
+  <li>ndarray.itemsize : 각 요소(Element)의 타입의 bytes 크기</li>
+  <li>ndarray.size : 전체 요소(Element)의 개수
+<img src="https://images.velog.io/images/hangils/post/a8d0eca9-1902-4f78-b877-c20e02e1389b/image.png" alt="" /></li>
+</ul>
+
+<h4 id="배열-생성---array-creation">배열 생성 - array creation</h4>
+
+<ul>
+  <li>a = np.array( [2, 3, 4] )</li>
+  <li>np.zeros(shape) : 0으로 구성된 N차원 배열 생성</li>
+  <li>np.ones(shape) : 1로 구성된 N차원 배열 생성</li>
+  <li>np.empty(shape) : 초기화되지 않은 N차원 배열 생성</li>
+</ul>
+
+<p>np.arrange() 와 np.linspace()를 이용하여 연속적인 데이터 생성</p>
+
+<ul>
+  <li>np.arange() : N 만큼 차이나는 숫자 생성</li>
+  <li>np.linspace() : N 등분한 숫자 생성</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td> --><td class="rouge-code"><pre><span class="c1"># 10이상 30미만까지 5씩 차이나는 배열 생성
+</span><span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arrange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">10</span> <span class="mi">15</span> <span class="mi">20</span> <span class="mi">25</span><span class="p">]</span>
+
+<span class="c1"># 0 ~ 99 까지 100등분
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># [ 0.  1.  2.  3.  4.  5.  6.  7.  8.  9. 10. 11. 12. 13. 14. 15. 16. 17.
+#  18. 19. 20. 21. 22. 23. 24. 25. 26. 27. 28. 29. 30. 31. 32. 33. 34. 35.
+#  36. 37. 38. 39. 40. 41. 42. 43. 44. 45. 46. 47. 48. 49. 50. 51. 52. 53.
+#  54. 55. 56. 57. 58. 59. 60. 61. 62. 63. 64. 65. 66. 67. 68. 69. 70. 71.
+#  72. 73. 74. 75. 76. 77. 78. 79. 80. 81. 82. 83. 84. 85. 86. 87. 88. 89.
+#  90. 91. 92. 93. 94. 95. 96. 97. 98. 99.]
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<p><img src="https://images.velog.io/images/hangils/post/e49dba71-2a39-4134-8384-391cf4e0b96d/image.png" alt="" /></p>
+
+<p>배열 출력 - print arrays</p>
+
+<p>3D 배열은 2차원 배열이 N개 출력되는 형식으로 나타남</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td> --><td class="rouge-code"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># [[ 0  1  2]
+#  [ 3  4  5]
+#  [ 6  7  8]
+#  [ 9 10 11]]
+</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># [[[ 0  1  2  3]
+#   [ 4  5  6  7]
+#   [ 8  9 10 11]]
+#
+#  [[12 13 14 15]
+#   [16 17 18 19]
+#   [20 21 22 23]]]
+</span>
+<span class="c1"># reshape()을 통해 데이터는 유지한채 차원만 변경가능
+# [10000] 배열을 [100, 100] 배열로 변경
+</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h4 id="numpy-연산">Numpy 연산</h4>
+<p>numpy에서 수치연산은 기본적으로 숫자 각각의 요소에 연산 적용</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td> --><td class="rouge-code"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span> <span class="mi">4</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># [0 1 2 3]
+</span>
+<span class="c1"># a에서 b에 각각의 원소를 -연산
+</span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">-</span><span class="n">b</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># [20 29 38 47]
+</span>
+<span class="c1"># b 각각의 원소에 제곱 연산
+</span><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># [0 1 4 9]
+</span>
+<span class="c1"># a 각각의 원소에 *10 연산
+</span><span class="k">print</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="c1"># [ 9.12945251 -9.88031624  7.4511316  -2.62374854]
+</span>
+<span class="c1"># a 각각의 원소가 35보다 작은지 Boolean 결과
+</span><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;</span><span class="mi">35</span><span class="p">)</span>
+<span class="c1"># [ True  True False False]
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>2차원 배열을 행렬이라고 볼때, 여러가지 곱셈법</p>
+
+<ul>
+  <li>
+    <ul>
+      <li>: 각각의 원소끼리 곱셈</li>
+    </ul>
+  </li>
+  <li>@ : 행렬 곱셈</li>
+  <li>.dot() : 행렬 내적</li>
+</ul>
+
+<hr />
+
+<h4 id="numpy-내장함수">numpy 내장함수</h4>
+
+<p>.sum(): 모든 요소의 합
+.min(): 모든 요소 중 최소값
+.max(): 모든 요소 중 최대값
+.argmax(): 모든 요소 중 최대값의 인덱스
+.cumsum(): 모든 요소의 누적합</p>
+
+<p><img src="https://images.velog.io/images/hangils/post/c9326243-dd6a-4b1a-87ef-61ed077d8d6d/image.png" alt="" /></p>
+
+<p>Numpy 차원 변경 함수
+<img src="https://images.velog.io/images/hangils/post/b890fed1-52c1-4c44-9635-d642b3bbca6d/image.png" alt="" /></p>
+
+<hr />
+
+<h4 id="broadcasting-rules">broadcasting rules</h4>
+<p>numpy에서 array 연산시 편리성을 위해 shape가 다른 np.array끼리 연산을 지원해주기 위한 기법</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td> --><td class="rouge-code"><pre><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="c1"># 결과
+# [2,4,6,8,10]
+</span>
+<span class="c1">#내부적 수행 과정
+# → np.array([1,2,3,4,5]) * np.array([2,2,2,2,2])
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>차원(ndim)이 같고, 각 축(axis)의 값이 같거나 1일 경우 연산이 가능</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><!-- <td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td> --><td class="rouge-code"><pre><span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># [0 2 4 6]
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="c1"># [[0. 1. 2. 3.]
+#  [0. 1. 2. 3.]
+#  [0. 1. 2. 3.]]
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="c1"># [[0 0 0]
+#  [0 1 2]
+#  [0 2 4]]
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+<p><img src="https://images.velog.io/images/hangils/post/fe91033b-8d78-4712-846d-e8c631429d61/image.png" alt="" /></p>
+
+<p><a href="https://numpy.org/doc/stable/user/basics.broadcasting.html"><strong>Numpy-공식문서</strong></a></p>
+:ET
